@@ -5,8 +5,13 @@ const AuthController = {
   login: async (req, res) => {
     try {
       const { username, password } = req.body;
+
       const checkUser = await User.findOne({ username: username });
+
+      // checkUser dang co ton tai
+
       if (!checkUser) {
+        // check User khong co
         return res.status(404).json({
           message: "Người dùng không tồn tại",
         });

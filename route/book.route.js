@@ -25,8 +25,10 @@ const cpUpload = upload.fields([{ name: "images", maxCount: 10 }]);
 
 const userMiddleware = require("../middleware/user.middleware");
 const bookController = require("../controller/book.controller");
+
 // api/book/create
 bookRouter.post("/create", cpUpload, bookController.create);
+
 bookRouter.get("/getall", bookController.getAllBook);
 
 bookRouter.put("/update/:id", cpUpload, bookController.update);
